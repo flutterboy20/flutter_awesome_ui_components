@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // 🌐 WEB CONFIGS
+    {
+      "name": "Web (Debug)",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "chrome"
+    },
+    {
+      "name": "Web (Release)",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "chrome",
+      "flutterMode": "release"
+    },
+
+    // 📱 MOBILE CONFIGS
+    {
+      "name": "Mobile (Debug)",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "Mobile (Release)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
