@@ -19,20 +19,7 @@ class CardSwiperDemo extends StatefulWidget {
 }
 
 class _CardSwiperDemoState extends State<CardSwiperDemo> {
-  // Track last swipe info for the status label below the stack.
-  String _statusText = 'Drag the top card in any direction';
   AllowedSwipeDirections _activeVariant = AllowedSwipeDirections.all;
-
-  void _onSwipe(int index, SwipeDirection direction) {
-    final String dirLabel = switch (direction) {
-      SwipeDirection.up => '↑ Up',
-      SwipeDirection.left => '← Left',
-      SwipeDirection.right => '→ Right',
-    };
-    setState(() {
-      _statusText = 'Card $index swiped $dirLabel';
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +32,6 @@ class _CardSwiperDemoState extends State<CardSwiperDemo> {
             _buildHeader(context),
             _buildVariantChips(),
             Expanded(child: _buildSwiperArea()),
-            _buildStatusBar(),
             const SizedBox(height: 24),
           ],
         ),
@@ -140,31 +126,13 @@ class _CardSwiperDemoState extends State<CardSwiperDemo> {
           visibleCardCount: 3,
           stackScaleFactor: 0.07,
           stackOffsetY: 20,
-          onSwipe: _onSwipe,
+          onSwipe: (swipedCard, direction) {
+            // Do the required action based on swipe direction and card data.
+          },
         ),
       ),
     );
   }
-
-  // ── Status label ──────────────────────────────
-
-  Widget _buildStatusBar() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: Text(
-          _statusText,
-          key: ValueKey<String>(_statusText),
-          style: AppTextStyles.body.copyWith(color: AppColors.textMuted),
-        ),
-      ),
-    );
-  }
-
-  // ─────────────────────────────────────────────
-  //  Demo card content
-  // ─────────────────────────────────────────────
 
   List<Widget> _buildDemoCards() {
     final List<_DemoCardData> data = <_DemoCardData>[
@@ -260,8 +228,6 @@ class _VariantChip extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text("Text"),
-            Text("Test 2"),
             Text(
               label,
               style: AppTextStyles.label.copyWith(
