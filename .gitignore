@@ -45,9 +45,13 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# AI Realted
+# AI Related
 .claude/
 CLAUDE.md
 .claudeignore
+.graphifyignore
 /graphify-out/
 /lib/graphify-out/
+task.md
+.mcp.json
+graphify-notes.md
