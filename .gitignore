@@ -45,6 +45,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# AI Realted
 .claude/
 CLAUDE.md
 .claudeignore
+/graphify-out/
+/lib/graphify-out/
