@@ -49,9 +49,5 @@ app.*.map.json
 .claude/
 CLAUDE.md
 .claudeignore
-.graphifyignore
-/graphify-out/
-/lib/graphify-out/
 task.md
 .mcp.json
-graphify-notes.md
